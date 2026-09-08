@@ -33,7 +33,7 @@
     </div>
     <div id="hero-carousel" class="carousel lps-hero-carousel">
       <div class="item">
-        <video class="lps-video" autoplay muted loop playsinline
+        <video class="lps-video" muted loop playsinline preload="metadata"
                poster="./assets/posters/tunnel_demo_poster.jpg?v=5">
           <source src="./assets/videos/tunnel_demo.mp4?v=5" type="video/mp4">
         </video>
@@ -43,7 +43,7 @@
         </p>
       </div>
       <div class="item">
-        <video class="lps-video" autoplay muted loop playsinline
+        <video class="lps-video" muted loop playsinline preload="metadata"
                poster="./assets/posters/lane_detection_poster.jpg">
           <source src="./assets/videos/lane_detection_airportlink_combined.mp4" type="video/mp4">
         </video>
@@ -53,13 +53,13 @@
         </p>
       </div>
       <div class="item">
-        <video class="lps-video" autoplay muted loop playsinline
-               poster="./assets/posters/urban_demo_poster.jpg?v=7">
-          <source src="./assets/videos/urban_demo.mp4?v=7" type="video/mp4">
+        <video class="lps-video" muted loop playsinline preload="metadata"
+               poster="./assets/posters/urban_demo_poster.jpg?v=8">
+          <source src="./assets/videos/urban_demo.mp4?v=8" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          Urban driving in Kelvin Grove, Brisbane: continuous positioning along a 3.83 km
-          route, checked against GPS the whole way.
+          Urban driving in Kelvin Grove, Brisbane: continuous LPS positioning along a 3.8 km
+          route shown alongside GPS.
         </p>
       </div>
     </div>
@@ -201,23 +201,21 @@
       </p>
     </div>
     <figure class="lps-figure">
-      <video class="lps-video" autoplay muted loop playsinline
+      <video class="lps-video" muted loop playsinline preload="metadata"
              poster="./assets/posters/tunnel_demo_poster.jpg?v=5">
         <source src="./assets/videos/tunnel_demo.mp4?v=5" type="video/mp4">
       </video>
       <figcaption>
-        Yellow marks GPS where it can be trusted. It vanishes at each of the four tunnel
-        transits. The vehicle's own receiver keeps claiming a fix there, but reports accuracy
-        degrading past a kilometre, while LPS keeps producing position.
+        The yellow marker indicate where GPS is available. 
+        GPS drops out during each of the four tunnel transits, while LPS continues to provide positioning throughout.
       </figcaption>
     </figure>
     <p class="lps-stats">
       21.5 km return route &middot; continuous positioning through four full GNSS outages &middot; reference mapped once &middot; no infrastructure installed
     </p>
     <p class="lps-caveat">
-      GPS is available at each portal and unusable between them, so the overlay shows exactly
-      where LPS is running unaided. Portal-to-portal accuracy figures are being finalised against
-      a surveyed reference.
+      GPS works at each portal and is unusable between them, so the overlay shows exactly where
+      LPS is helpful.
     </p>
 
     <br>
@@ -225,21 +223,20 @@
     <h3 class="title is-4">Lane-level positioning inside tunnels</h3>
     <div class="content">
       <p>
-        Along-track position is only half of what an operator needs. Which lane the vehicle is
-        in drives exit-ramp guidance, lane-specific traffic monitoring, incident response and
-        automated driving decisions. Adjacent lanes are only a few metres apart, and the position
-        estimate itself is accurate enough to tell them apart: from a low-resolution sensor,
-        underground, with no GNSS.
+        Knowing how far along the tunnel a vehicle is answers only half the question. Which lane
+        it is in drives exit-ramp guidance, lane-specific traffic monitoring, incident response
+        and automated driving decisions. LPS provides accurate lane-level positioning
+        inside tunnels.
       </p>
     </div>
     <figure class="lps-figure">
-      <video class="lps-video" autoplay muted loop playsinline
+      <video class="lps-video" muted loop playsinline preload="metadata"
              poster="./assets/posters/lane_detection_poster.jpg">
         <source src="./assets/videos/lane_detection_airportlink_combined.mp4" type="video/mp4">
       </video>
       <figcaption>
         One reference trajectory per lane: blue for the left lane, orange for the right. The
-        live estimate resolves to one of them from the sensor signature alone.
+        live estimate matches one of them from the sensor signature alone.
       </figcaption>
     </figure>
     <p class="lps-stats">
@@ -251,23 +248,23 @@
     <h3 class="title is-4">Urban driving: Kelvin Grove, Brisbane</h3>
     <div class="content">
       <p>
-        A 3.83 km two-way urban route. GPS is available throughout, which makes this the
-        reference point for interpreting the GNSS-denied tests above.
+        A 3.8 km two-way urban route. GPS is available the whole way, so this run is the
+        yardstick for reading the GNSS-denied results above.
       </p>
     </div>
     <figure class="lps-figure">
-      <video class="lps-video" autoplay muted loop playsinline
-             poster="./assets/posters/urban_demo_poster.jpg?v=7">
-        <source src="./assets/videos/urban_demo.mp4?v=7" type="video/mp4">
+      <video class="lps-video" muted loop playsinline preload="metadata"
+             poster="./assets/posters/urban_demo_poster.jpg?v=8">
+        <source src="./assets/videos/urban_demo.mp4?v=8" type="video/mp4">
       </video>
     </figure>
     <p class="lps-stats">
-      Median error 5.8 m &middot; 93.9% of estimates within 25 m &middot; cross-track RMSE 3.0 m &middot; along-track RMSE 10.9 m
+      Median error 2.6 m &middot; 98.9% of estimates within 25 m &middot; cross-track RMSE 2.6 m &middot; along-track RMSE 6.7 m
     </p>
     <p class="lps-caveat">
-      These are errors relative to GPS, not to surveyed ground truth. Low cross-track error means
-      LPS held the correct side of the road; along-track error is larger, so how far along the
-      road the vehicle is carries more uncertainty than which lane it is in.
+      These are errors relative to GPS, not to surveyed ground truth. Cross-track error is low,
+      so LPS held the correct side of the road. Along-track error is larger: how far along the
+      road the vehicle is remains less certain than where it sits across the road.
     </p>
   </div>
 </section>
@@ -450,8 +447,7 @@
       <details>
         <summary>What are the latency and update rate?</summary>
         <p>
-          The current prototype produces position estimates at ~10 Hz, with matching performed
-          on-device, so there is no network latency in the loop.
+          The current prototype produces position estimates at ~10 Hz.
         </p>
       </details>
       <details>

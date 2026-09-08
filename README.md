@@ -6,7 +6,7 @@ positioning working where GPS cannot — tunnels, carparks and indoor
 environments — by matching a low-resolution sensor signature against a compact
 local reference map, with no beacons or roadside infrastructure.
 
-**Live site:** https://theresejoseph.github.io/lps-transport/
+**Live site:** https://local-positioning-system.github.io/transport/
 
 Contact: Professor Michael Milford, FTSE — michael.milford@qut.edu.au
 
