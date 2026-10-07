@@ -34,12 +34,22 @@
     <div id="hero-carousel" class="carousel lps-hero-carousel">
       <div class="item">
         <video class="lps-video" muted loop playsinline preload="metadata"
-               poster="./assets/posters/tunnel_demo_poster.jpg?v=5">
-          <source src="./assets/videos/tunnel_demo.mp4?v=5" type="video/mp4">
+               poster="./assets/posters/zoe_sep16_poster.jpg">
+          <source src="./assets/videos/zoe_sep16_demo.mp4" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          21.5 km through the AirportlinkM7 and Clem7 tunnels, Brisbane. The yellow GPS marker
-          disappears at each portal; the LPS estimate does not.
+          Inside the AirportlinkM7 tunnel on an instrumented research vehicle, with a map recorded
+          the same day: 96.6% of estimates within 15 m of its inertial navigation, no GNSS underground.
+        </p>
+      </div>
+      <div class="item">
+        <video class="lps-video" muted loop playsinline preload="metadata"
+               poster="./assets/posters/zoe_sep14_poster.jpg">
+          <source src="./assets/videos/zoe_sep14_demo.mp4" type="video/mp4">
+        </video>
+        <p class="lps-carousel-caption">
+          The same tunnel and the same map, driven two days apart from the mapping run: 88.6% of
+          estimates within 15 m.
         </p>
       </div>
       <div class="item">
@@ -48,14 +58,14 @@
           <source src="./assets/videos/lane_detection_airportlink_combined.mp4" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          Lane-level positioning inside the AirportlinkM7 tunnel: the position estimate lands
-          in the correct lane 99.6% of the time across 1.3 km, with no GNSS underground.
+          Lane-level positioning inside the AirportlinkM7 tunnel: the estimate picks the correct
+          lane 99.6% of the time across 1.15 km and six lane changes, with no GNSS underground.
         </p>
       </div>
       <div class="item">
         <video class="lps-video" muted loop playsinline preload="metadata"
-               poster="./assets/posters/urban_demo_poster.jpg?v=8">
-          <source src="./assets/videos/urban_demo.mp4?v=8" type="video/mp4">
+               poster="./assets/posters/urban_demo_poster.jpg?v=12">
+          <source src="./assets/videos/urban_demo.mp4?v=12" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
           Urban driving in Kelvin Grove, Brisbane: continuous LPS positioning along a 3.8 km
@@ -97,14 +107,14 @@
 <section class="lps-section">
   <div class="lps-container">
     <h2 class="title is-3">What is LPS?</h2>
-    <div class="columns lps-mounts">
+    <div class="columns lps-mounts lps-mounts-zoe">
       <div class="column has-text-centered">
-        <img src="./assets/images/mount_vehicle_front.jpg" alt="LPS sensor mounted on a car roof, circled">
-        <p class="lps-compare-label">Mounted on the vehicle</p>
+        <div class="lps-ringed lps-ringed-zoe"><img src="./assets/images/lps_on_zoe_front.jpg?v=3" alt="ZOE, QUT's instrumented research vehicle, with the LPS sensor circled in red on the roof above the windscreen"><span class="lps-ring" style="--x:47.8%;--y:31.7%;--d:9.5%" aria-hidden="true"></span></div>
+        <p class="lps-compare-label">ZOE, an instrumented research vehicle</p>
       </div>
       <div class="column has-text-centered">
-        <img src="./assets/images/mount_vehicle_wide.jpg" alt="Instrumented vehicle on a suburban street with the LPS sensor circled on the roof">
-        <p class="lps-compare-label">On the road, nothing installed roadside</p>
+        <div class="lps-ringed lps-ringed-zoe"><img src="./assets/images/lps_on_zoe_side.jpg?v=3" alt="The LPS sensor, circled in red, on ZOE's roof beside the vehicle's own sensors"><span class="lps-ring" style="--x:34.4%;--y:33.7%;--d:10%" aria-hidden="true"></span></div>
+        <p class="lps-compare-label">LPS on the roof, beside the vehicle's own sensors</p>
       </div>
     </div>
     <div class="content">
@@ -114,6 +124,11 @@
         once; every vehicle afterwards localises against it on-device. Nothing is installed in the
         tunnel, on the roadside or in the road surface, and the same unit works on any mapped
         corridor rather than only the ones that have been fitted out.
+      </p>
+      <p>
+        On ZOE, the research vehicle used for the tunnel accuracy trials, the sensor sits on a
+        magnetic roof mount clear of the car's own cameras, LiDAR and inertial navigation, which
+        provide the independent reference it is scored against.
       </p>
     </div>
 
@@ -192,30 +207,56 @@
   <div class="lps-container">
     <h2 class="title is-3">Results</h2>
 
-    <h3 class="title is-4">Tunnel positioning: AirportlinkM7 and Clem7</h3>
+    <h3 class="title is-4">Accuracy inside the tunnel: AirportlinkM7</h3>
     <div class="content">
       <p>
-        A 21.5 km return route from Brisbane Airport through the AirportlinkM7 and Clem7 tunnels,
-        covering both directions. The reference was mapped once; no hardware was installed in
-        either tunnel.
+        GPS cannot check a position underground, so we measured it on an instrumented research
+        vehicle whose inertial navigation is logged through the tunnel. Two trials, each driving the
+        tunnel northbound and southbound, covered 9.5 km at about 70 km/h. Nothing was installed in
+        the tunnel.
+      </p>
+      <p>
+        <strong>One map for both trials.</strong> The reference map was built once, from two
+        passes, one per lane. One trial was driven the same day as the mapping run, the other two
+        days apart from it. Both were positioned against that same map with the same settings,
+        with nothing re-surveyed or re-tuned in between.
       </p>
     </div>
     <figure class="lps-figure">
       <video class="lps-video" muted loop playsinline preload="metadata"
-             poster="./assets/posters/tunnel_demo_poster.jpg?v=5">
-        <source src="./assets/videos/tunnel_demo.mp4?v=5" type="video/mp4">
+             poster="./assets/posters/zoe_sep16_poster.jpg">
+        <source src="./assets/videos/zoe_sep16_demo.mp4" type="video/mp4">
       </video>
       <figcaption>
-        The yellow marker indicate where GPS is available. 
-        GPS drops out during each of the four tunnel transits, while LPS continues to provide positioning throughout.
+        <strong>Map recorded the same day.</strong> 4.7 km of tunnel, 96.6% of estimates within
+        15 m, median error 2.3 m.
       </figcaption>
     </figure>
+    <figure class="lps-figure">
+      <video class="lps-video" muted loop playsinline preload="metadata"
+             poster="./assets/posters/zoe_sep14_poster.jpg">
+        <source src="./assets/videos/zoe_sep14_demo.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>Map recorded two days apart.</strong> 4.8 km of tunnel, 88.6% of estimates within
+        15 m, median error 3.3 m.
+      </figcaption>
+    </figure>
+    <p class="lps-metrics-label">Both trials combined</p>
+    <div class="lps-metrics">
+      <div class="lps-metric"><span class="lps-metric-value">2.6 m</span><span class="lps-metric-label">Median position error</span></div>
+      <div class="lps-metric"><span class="lps-metric-value">92.4%</span><span class="lps-metric-label">Of estimates within 15 m</span></div>
+      <div class="lps-metric"><span class="lps-metric-value">0.6 m</span><span class="lps-metric-label">Median error across the road</span></div>
+      <div class="lps-metric"><span class="lps-metric-value">94.3%</span><span class="lps-metric-label">Within one lane width across the road</span></div>
+    </div>
     <p class="lps-stats">
-      21.5 km return route &middot; continuous positioning through four full GNSS outages &middot; reference mapped once &middot; no infrastructure installed
+      9.5 km of tunnel &middot; 96.0% of estimates within 25 m &middot; 95th-percentile error 21.2 m &middot; reference mapped once &middot; no infrastructure installed
     </p>
     <p class="lps-caveat">
-      GPS works at each portal and is unusable between them, so the overlay shows exactly where
-      LPS is helpful.
+      Errors are relative to the vehicle's inertial navigation, the only reference measured
+      inside the tunnel. The settings were fixed in advance rather than tuned to this run. Most
+      of the error is along the road; across the road the estimate rarely leaves the true lane.
+      Map tiles in the videos &copy; OpenStreetMap contributors, &copy; CARTO.
     </p>
 
     <br>
@@ -240,7 +281,7 @@
       </figcaption>
     </figure>
     <p class="lps-stats">
-      99.6% lane-level positioning accuracy across 1.3 km with 6 lane changes
+      99.6% balanced lane accuracy (644 of 647 frames) across 1.15 km &middot; 6 of 6 lane changes detected &middot; the only misses fall within 1 s of a lane change
     </p>
 
     <br>
@@ -254,17 +295,17 @@
     </div>
     <figure class="lps-figure">
       <video class="lps-video" muted loop playsinline preload="metadata"
-             poster="./assets/posters/urban_demo_poster.jpg?v=8">
-        <source src="./assets/videos/urban_demo.mp4?v=8" type="video/mp4">
+             poster="./assets/posters/urban_demo_poster.jpg?v=12">
+        <source src="./assets/videos/urban_demo.mp4?v=12" type="video/mp4">
       </video>
     </figure>
     <p class="lps-stats">
-      Median error 2.6 m &middot; 98.9% of estimates within 25 m &middot; cross-track RMSE 2.6 m &middot; along-track RMSE 6.7 m
+      Median error 2.5 m &middot; 93.9% of estimates within 15 m &middot; 99.2% within 25 m &middot; median across-road error 0.8 m, along-road 2.2 m
     </p>
     <p class="lps-caveat">
-      These are errors relative to GPS, not to surveyed ground truth. Cross-track error is low,
-      so LPS held the correct side of the road. Along-track error is larger: how far along the
-      road the vehicle is remains less certain than where it sits across the road.
+      These are errors relative to smartphone GPS, accurate to about 8 m, not to surveyed ground
+      truth, so they include the receiver's own error. The tunnel and campus results are close:
+      92.4% and 93.9% within 15 m, at 70 km/h and 23 km/h.
     </p>
   </div>
 </section>
@@ -419,12 +460,11 @@
       <details>
         <summary>How do you know it works in a tunnel if there is no GPS to check against?</summary>
         <p>
-          At the portals there is. GPS is trustworthy on the approach and again on the exit, so
-          each tunnel transit is bracketed by a known position at both ends, and the tunnel videos
-          show exactly where that check is available and where it is not. That bounds how far the
-          estimate can have wandered, but it is not a continuous measurement, which is why a
-          surveyed GNSS/INS and LiDAR reference campaign is the next step rather than a claim we
-          are making today.
+          With an instrumented vehicle. Its inertial navigation is logged all the way through
+          the tunnel, so every LPS estimate can be scored against an independent position, not
+          just at the portals. Across 9.5 km of the AirportlinkM7 the median error was 2.6 m and
+          92.4% of estimates were within 15 m. On ordinary vehicles, GPS at each portal still
+          brackets every transit with a known position at both ends.
         </p>
       </details>
       <details>
@@ -488,7 +528,8 @@
         The same sensor and the same method work anywhere GNSS does not reach. Alongside the
         transport work, LPS has been demonstrated tracking mobile assets indoors: a library
         trolley moved across five levels and left in a storeroom, and hospital equipment that has
-        to be found rather than searched for.
+        to be found rather than searched for. Mounted on an electric scooter's handlebars, it has
+        positioned the scooter through a car park and across an overpass.
       </p>
     </div>
     <div class="columns lps-beyond">
@@ -499,6 +540,10 @@
       <div class="column has-text-centered">
         <img src="./assets/images/mount_hospital_bed.png" alt="LPS sensor mounted on a hospital bed">
         <p class="lps-compare-label">Hospital beds</p>
+      </div>
+      <div class="column has-text-centered">
+        <div class="lps-ringed lps-ringed-beyond"><img src="./assets/images/lps_on_scooter.jpg?v=2" alt="The instrumented electric scooter, with the LPS sensor on its handlebars, in the O Block car park"><span class="lps-ring" style="--x:49.2%;--y:54%;--d:12%" aria-hidden="true"></span></div>
+        <p class="lps-compare-label">E-scooters</p>
       </div>
     </div>
   </div>
