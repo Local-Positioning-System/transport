@@ -538,4 +538,5 @@ a:hover {
   pointer-events: none;
 }
 .lps-ringed-beyond .lps-ring { border-width: 1.5px; }
+.lps-footer .lps-footer-credit { margin-top: 0.35rem; }
 
