@@ -10,11 +10,11 @@
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=4">
   <link rel="icon" href="./static/images/favicon.png">
 
   <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/index.js"></script>
+  <script src="./static/js/index.js?v=3"></script>
 </head>
 <body>
 
@@ -31,15 +31,16 @@
       <a class="button lps-button" href="#contact">Talk to us about a pilot</a>
       <a class="button lps-button-outline" href="https://localpositioningsystem.com" target="_blank" rel="noopener">LPS Website</a>
     </div>
-    <div id="hero-carousel" class="carousel lps-hero-carousel">
+  </div>
+  <div id="hero-carousel" class="lps-hero-carousel">
       <div class="item">
         <video class="lps-video" muted loop playsinline preload="metadata"
-               poster="./assets/posters/zoe_sep16_poster.jpg">
-          <source src="./assets/videos/zoe_sep16_demo.mp4" type="video/mp4">
+               poster="./assets/posters/zoe_tunnel_3d_poster.jpg?v=3">
+          <source src="./assets/videos/zoe_tunnel_3d.mp4?v=3" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          Inside the AirportlinkM7 tunnel on an instrumented research vehicle, with a map recorded
-          the same day: 96.6% of estimates within 15 m of its inertial navigation, no GNSS underground.
+          The AirportLink M7 tunnel, seen through the research vehicle's camera and as the 3D map built
+          from its lidar.
         </p>
       </div>
       <div class="item">
@@ -48,8 +49,8 @@
           <source src="./assets/videos/zoe_sep14_demo.mp4" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          The same tunnel and the same map, driven two days apart from the mapping run: 88.6% of
-          estimates within 15 m.
+          AirportLink M7 tunnel driven two days after mapping: 88.6% of LPS estimates were within 15 m,
+          with no GNSS underground.
         </p>
       </div>
       <div class="item">
@@ -58,8 +59,8 @@
           <source src="./assets/videos/lane_detection_airportlink_combined.mp4" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          Lane-level positioning inside the AirportlinkM7 tunnel: the estimate picks the correct
-          lane 99.6% of the time across 1.15 km and six lane changes, with no GNSS underground.
+          Lane-level positioning in the AirportLink M7: the correct lane 99.6% of the time over 1.15 km,
+          through six lane changes.
         </p>
       </div>
       <div class="item">
@@ -68,12 +69,23 @@
           <source src="./assets/videos/urban_demo.mp4?v=13" type="video/mp4">
         </video>
         <p class="lps-carousel-caption">
-          Urban driving in Kelvin Grove, Brisbane: continuous LPS positioning along a 3.8 km
-          route shown alongside GPS.
+          Kelvin Grove, Brisbane: LPS positioning along 3.8 km of city streets, shown alongside GPS.
         </p>
       </div>
-    </div>
+      <div class="item">
+        <video class="lps-video" muted loop playsinline preload="metadata"
+               poster="./assets/posters/scooter_demo_poster.jpg?v=6">
+          <source src="./assets/videos/scooter_demo.mp4?v=6" type="video/mp4">
+        </video>
+        <p class="lps-carousel-caption">
+          An e-scooter on the paths of QUT Gardens Point, under trees and beside buildings: median error
+          0.8 m.
+        </p>
+      </div>
+      <button class="lps-hero-nav lps-hero-prev" type="button" aria-label="Previous video">&lsaquo;</button>
+      <button class="lps-hero-nav lps-hero-next" type="button" aria-label="Next video">&rsaquo;</button>
   </div>
+  <p class="lps-carousel-caption lps-hero-caption" aria-live="polite"></p>
 </section>
 
 <!-- The gap -->
@@ -82,7 +94,7 @@
     <h2 class="title is-3">The gap in the road network</h2>
     <div class="content">
       <p>
-        Brisbane alone routes traffic through three major road tunnels: the AirportlinkM7, Clem7
+        Brisbane alone routes traffic through three major road tunnels: the AirportLink M7, Clem7
         and Legacy Way. Vehicles do not stop needing a position once they enter one. Transit
         continuity, freight visibility, emergency response and any level of driving automation all
         depend on knowing where the vehicle is. GNSS needs a clear view of the sky, so it degrades
@@ -207,7 +219,7 @@
   <div class="lps-container">
     <h2 class="title is-3">Results</h2>
 
-    <h3 class="title is-4">Accuracy inside the tunnel: AirportlinkM7</h3>
+    <h3 class="title is-4">Accuracy inside the tunnel: AirportLink M7</h3>
     <div class="content">
       <p>
         GPS cannot check a position underground, so we measured it on an instrumented research
@@ -460,7 +472,7 @@
         <p>
           With an instrumented vehicle. Its inertial navigation is logged all the way through
           the tunnel, so every LPS estimate can be scored against an independent position, not
-          just at the portals. Across 9.5 km of the AirportlinkM7 the median error was 2.6 m and
+          just at the portals. Across 9.5 km of the AirportLink M7 the median error was 2.6 m and
           92.4% of estimates were within 15 m. On ordinary vehicles, GPS at each portal still
           brackets every transit with a known position at both ends.
         </p>
@@ -544,6 +556,47 @@
         <p class="lps-compare-label">E-scooters</p>
       </div>
     </div>
+    <h3 class="title is-5">E-scooter on campus paths</h3>
+    <div class="content">
+      <p>
+        The scooter ridden along the paths between M Block and O Block at QUT Gardens Point, under
+        trees and beside buildings. The map shows where LPS placed the scooter, live, next to a
+        phone video of the same ride.
+      </p>
+    </div>
+    <figure class="lps-figure">
+      <video class="lps-video" muted loop playsinline preload="metadata"
+             poster="./assets/posters/scooter_demo_poster.jpg?v=6">
+        <source src="./assets/videos/scooter_demo.mp4?v=6" type="video/mp4">
+      </video>
+    </figure>
+    <p class="lps-stats">
+      Median error 0.8 m &middot; 87% of estimates within 2 m &middot; 99.7% within 3 m &middot; shown at 3&times; speed
+    </p>
+    <h3 class="title is-5">In the parking bay, or blocking the footpath?</h3>
+    <div class="content">
+      <p>
+        On Alice Street, beside the City Botanic Gardens, the footpath is split lengthwise: the
+        strip next to the kerb is a marked e-scooter parking bay, and the side by the garden fence
+        is for people walking. A scooter left on the garden side blocks the path. The two sides are
+        only a couple of metres apart, under trees where phone GPS is far less precise than that.
+        This trial ride weaves between the sides; the video shows which side LPS places the scooter
+        on, from LPS alone.
+      </p>
+    </div>
+    <figure class="lps-figure">
+      <video class="lps-video" muted loop playsinline preload="metadata"
+             poster="./assets/posters/alice_street_geofence_poster.jpg?v=6">
+        <source src="./assets/videos/alice_street_geofence.mp4?v=6" type="video/mp4">
+      </video>
+    </figure>
+    <p class="lps-stats">
+      Median error 0.9 m &middot; 94% of estimates within 2 m &middot; 100% within 3 m &middot; shown at 4&times; speed
+    </p>
+    <p class="lps-caveat">
+      An early trial. The reference is the phone's odometry track, with the recordings aligned to
+      each other and the straight ride taken as parallel to the road.
+    </p>
   </div>
 </section>
 
@@ -585,7 +638,7 @@
       (CC BY-SA 4.0).
     </p>
     <p class="lps-footer-credit">
-      Map tiles in the videos &copy; OpenStreetMap contributors, &copy; CARTO.
+      Map tiles in the videos &copy; OpenStreetMap contributors, &copy; CARTO, OpenFreeMap.
     </p>
   </div>
 </footer>

@@ -133,6 +133,11 @@ figure.lps-figure figcaption {
   margin-top: 0.9rem;
 }
 
+/* a heading straight after a stats line starts a new demo: give it room */
+.lps-stats + h3.title {
+  margin-top: 2.5rem;
+}
+
 .lps-caveat {
   font-size: 0.88rem;
   color: var(--lps-muted);
@@ -427,18 +432,38 @@ a:hover {
 }
 
 /* Hero video carousel */
+/* Three across the page width: the playing video in front, its neighbours smaller behind it. Positions are set
+   from index.js; --w is the front video's width, sized so the three fit the page. The height fits a 16:9 video,
+   and wider ones sit centred in it. */
 .lps-hero-carousel {
+  --w: 46vw;
+  position: relative;
+  width: 100%;
+  height: calc(var(--w) * 9 / 16);
+  margin-top: 2.5rem;
   overflow: hidden;
-  text-align: left;
 }
 
 .lps-hero-carousel .item {
-  overflow: hidden;
-  padding: 0 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--w);
+  transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out, filter 1.5s ease-in-out;
+  cursor: pointer;
+}
+
+.lps-hero-carousel .item.is-front {
+  cursor: default;
 }
 
 .lps-hero-carousel video {
   margin: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.lps-hero-carousel .item .lps-carousel-caption {
+  display: none;
 }
 
 .lps-carousel-caption {
@@ -448,11 +473,39 @@ a:hover {
   text-align: center;
 }
 
-/* bulma-carousel nav arrows in the accent colour */
-.lps-hero-carousel .slider-navigation-previous,
-.lps-hero-carousel .slider-navigation-next {
-  background-color: rgba(250, 247, 240, 0.85);
+.lps-hero-caption {
+  max-width: 860px;
+  min-height: 3em;
+  margin: 0.8rem auto 0 auto;
+  padding: 0 16px;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.lps-hero-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-top: -1.2rem;
+  border-radius: 50%;
   border: 1px solid var(--lps-rule);
+  background-color: rgba(250, 247, 240, 0.85);
+  color: var(--lps-accent);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lps-hero-prev { left: 16px; }
+.lps-hero-next { right: 16px; }
+
+@media (max-width: 700px) {
+  .lps-hero-carousel { --w: 78vw; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lps-hero-carousel .item { transition: none; }
 }
 
 @media (max-width: 480px) {
